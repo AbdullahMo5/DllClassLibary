@@ -99,13 +99,19 @@ namespace Goorge
             }
             Console.WriteLine(ConnectionMT5API.ConnectMT5server("198.244.201.65", 1950, 2023, "123Nm,.com"));
 
-            DateTimeOffset unixEpoch = new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero);
             long from = ((DateTimeOffset)DateTime.Now.AddYears(-10).Date).ToUnixTimeSeconds();
             long to = ((DateTimeOffset)DateTime.Now.Date).ToUnixTimeSeconds();
 
-            var response = ConnectionMT5API.GetUserRights(880413).Data;
+            //var response = ConnectionMT5API.HistoryRequest(880413).Data;
+            var response = ConnectionMT5API.PositionsGetAll(880413, from, to).Data;
 
-            Console.WriteLine("Rights: " + response);
+            Console.WriteLine("User Equity: " + response);
+
+            foreach (var item in response as List<PositionModel>)
+            {
+                Console.WriteLine("User Position: " + item.Position);
+                //Console.WriteLine(ConnectionMT5API.GetDeal(item.Position).Data);
+            }
 
             Console.WriteLine("Press any Key To Close......");
             Console.ReadLine();

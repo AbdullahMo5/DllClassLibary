@@ -245,9 +245,17 @@ namespace Goorge
         {
             return userService.GetUserLoginsByGroup(group);
         }
+        public static ReturnModel GetUserEquity(ulong login)
+        {
+            return userService.GetUserEquity(login);
+        }
         public static ReturnModel GetUserRights(ulong login)
         {
             return userService.GetUserRights(login);
+        }
+        public static ReturnModel SetUserRights(ulong login, ulong right)
+        {
+            return userService.SetUserRights(login, right);
         }
         public static ReturnModel GetBalanceByGroup(string group)
         {
@@ -451,29 +459,28 @@ namespace Goorge
 
     #region Positions    
         public static ReturnModel PositionRequest(ulong login)
-        {
-            var resp = positionService.PositionRequest(login);           
-            return resp;
+        {    
+            return positionService.PositionRequest(login);
         }
-        //public static ReturnModel PositionsGetAll(ulong login, long from, long to)
-        //{
-        //    var resp = positionService.PositionsGetAll(login, from, to);
-        //    return resp;
-        //}
+        public static ReturnModel PositionCloseRequest(ulong login, long from, long to)
+        {
+            return positionService.PositionCloseRequest(login,from,to);
+        }
+        public static ReturnModel PositionsGetAll(ulong login, long from, long to)
+        {
+            return positionService.PositionsGetAll(login, from, to);
+        }
         public static ReturnModel PositionRequest(ulong login, int pageNumber, int pageSize)
         {
-            var resp = positionService.PositionRequest(login, pageNumber, pageSize);
-            return resp;
+            return positionService.PositionRequest(login, pageNumber, pageSize);
         }
         public static ReturnModel PositionRequestBySymbol(string symbol, string group)
-        {
-            var resp = positionService.PositionsRequestBySymbol(group, symbol);           
-            return resp;
+        {          
+            return positionService.PositionsRequestBySymbol(group, symbol);
         }
         public static ReturnModel PositionRequestAll()
-        {
-            var resp = positionService.PositionsRequestByGroupAll();           
-            return resp;
+        {      
+            return positionService.PositionsRequestByGroupAll();
         }
         public static ReturnModel PositionRequestByLogins(ulong[] logins)
         {

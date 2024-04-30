@@ -32,7 +32,6 @@ namespace Goorge.Services
                 {
                     model.Data = new DealModel(deal);
                 }
-
             }            
             return model;        
         }

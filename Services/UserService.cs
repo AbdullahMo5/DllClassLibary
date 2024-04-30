@@ -103,6 +103,28 @@ namespace Goorge.Services
             }
             return returnModel;
         }
+        public ReturnModel GetUserEquity(ulong login)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            try
+            {
+                using (var user = managerAPI.UserCreate())
+                {
+                    var request = managerAPI.UserGet(login, user);
+                    returnModel.MTRetCode = request;
+                    if (request == MTRetCode.MT_RET_OK)
+                    {
+                        returnModel.Data = user.EquityPrevDay();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                returnModel.Message = ex.InnerException.Message;
+            }
+            return returnModel;
+        }
         public  MTRetCode DeleteUser(ulong login)
         {
             MTRetCode res = MTRetCode.MT_RET_OK_NONE;
@@ -123,17 +145,38 @@ namespace Goorge.Services
                     returnModel.MTRetCode = request;
                     if (request == MTRetCode.MT_RET_OK)
                     {
-                        returnModel.Data = Enum.GetName(typeof(CIMTUser.EnUsersRights) ,user.Rights());
+                        returnModel.Data = user.Rights();
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 returnModel.Message = ex.InnerException.Message;
             }
-
+            return returnModel;
+        }
+        public ReturnModel SetUserRights(ulong login, ulong rights)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            try
+            {
+                using (var user = managerAPI.UserCreate())
+                {
+                    var request = managerAPI.UserGet(login, user);
+                    returnModel.MTRetCode = request;
+                    if (request == MTRetCode.MT_RET_OK)
+                    {
+                        user.Rights((CIMTUser.EnUsersRights)rights);
+                        returnModel.Data = user.Rights();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                returnModel.Message = ex.InnerException.Message;
+            }
             return returnModel;
         }
         public ReturnModel ChangePassword(uint type, ulong login, string password)
