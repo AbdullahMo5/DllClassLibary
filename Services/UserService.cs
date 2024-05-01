@@ -103,28 +103,6 @@ namespace Goorge.Services
             }
             return returnModel;
         }
-        public ReturnModel GetUserEquity(ulong login)
-        {
-            ReturnModel returnModel = new ReturnModel();
-            try
-            {
-                using (var user = managerAPI.UserCreate())
-                {
-                    var request = managerAPI.UserGet(login, user);
-                    returnModel.MTRetCode = request;
-                    if (request == MTRetCode.MT_RET_OK)
-                    {
-                        returnModel.Data = user.EquityPrevDay();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                returnModel.Message = ex.InnerException.Message;
-            }
-            return returnModel;
-        }
         public  MTRetCode DeleteUser(ulong login)
         {
             MTRetCode res = MTRetCode.MT_RET_OK_NONE;

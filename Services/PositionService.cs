@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Goorge.Services
 {
-    public class PositionService : IService
+    public class PositionService
     {
         private CIMTManagerAPI managerAPI = null;
         public void Initialize(CIMTManagerAPI m_manager)
@@ -209,89 +209,5 @@ namespace Goorge.Services
             return returnModel;
 
         }
-        //public ReturnModel PositionsGetAll(ulong login, long from, long to)
-        //{
-        //    ReturnModel returnModel = new ReturnModel();
-        //    using (CIMTOrderArray Orders = managerAPI.OrderCreateArray())
-        //    {
-        //        var orderList = new List<ulong>();
-        //        var orderRes = managerAPI.HistoryRequest(login, from, to, Orders);
-        //        if (orderRes == MTRetCode.MT_RET_OK)
-        //        {
-        //            foreach (var item in Orders.ToArray())
-        //            {
-        //                var order = new OrderModel(item);
-        //                orderList.Add(order.PositionID);
-        //            }
-
-        //            var positionList = new List<PositionModel>();
-        //            var positions = managerAPI.PositionCreateArray();
-        //            var result = managerAPI.PositionGetByTickets(orderList.ToArray(), positions);
-        //            var test = Convert.ToInt32(positions.Total());
-        //            returnModel.MTRetCode = result;
-        //            if (result == MTRetCode.MT_RET_OK)
-        //            {
-        //                foreach (var item in positions.ToArray())
-        //                {
-        //                    positionList.Add(new PositionModel(item));
-        //                }
-        //            }
-        //            returnModel.TotalCount = Convert.ToInt32(positions.Total());
-        //            returnModel.Data = positionList;
-        //        }
-        //    }
-        //    return returnModel;
-        //}
-        //public ReturnModel PositionCloseRequest(ulong login, long from, long to)
-        //{
-        //    ReturnModel returnModel = new ReturnModel();
-        //    using (CIMTOrderArray Orders = managerAPI.OrderCreateArray())
-        //    {
-        //        var orderList = new List<ulong>();
-        //        var orderRes = managerAPI.HistoryRequest(login, from, to, Orders);
-        //        if (orderRes == MTRetCode.MT_RET_OK)
-        //        {
-        //            foreach (var item in Orders.ToArray())
-        //            {
-        //                var order = new OrderModel(item);
-        //                orderList.Add(order.PositionID);
-        //            }
-
-        //            var allPositions = new Dictionary<ulong, PositionModel>();
-        //            using (CIMTPositionArray positions = managerAPI.PositionCreateArray())
-        //            {
-        //                returnModel.MTRetCode = managerAPI.PositionGetByTickets(orderList.ToArray(), positions);
-        //                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
-        //                {
-        //                    foreach (var item in positions.ToArray())
-        //                    {
-        //                        var pos = new PositionModel(item);
-        //                        allPositions.Add(pos.Position, pos);
-        //                    }
-        //                }
-        //            }
-        //            var openPositions = new Dictionary<ulong, PositionModel>();
-        //            using (CIMTPositionArray positions = managerAPI.PositionCreateArray())
-        //            {
-        //                returnModel.MTRetCode = managerAPI.PositionRequest(login, positions);
-        //                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
-        //                {
-        //                    foreach (var item in positions.ToArray())
-        //                    {
-        //                        var pos = new PositionModel(item);
-        //                        openPositions.Add(pos.Position, pos);
-        //                    }
-        //                }
-        //            }
-        //            var closePositions = allPositions
-        //            .Where(kv => !openPositions.ContainsKey(kv.Key))
-        //            .ToList();
-
-        //            returnModel.TotalCount = Convert.ToInt32(closePositions.Count);
-        //            returnModel.Data = closePositions;
-        //        }
-        //    }
-        //    return returnModel;
-        //}
     }
 }

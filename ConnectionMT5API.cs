@@ -21,6 +21,7 @@ namespace Goorge
     {
         //private static string m_connect_str = Auth.SERVER + ":" + Auth.PORT.ToString();
         private static CIMTManagerAPI m_manager = null;
+        public static CIMTRequest admin;
         private static CIMTRequest m_request = null;            // request interface
         private static CIMTConfirm m_confirm = null;            // confirmation interface
         private static CDealer m_dealer = null;            // confirmation interface
@@ -75,8 +76,9 @@ namespace Goorge
             string m_connect_str = server + ":" + port.ToString();
 
             //CDealer m_dealer = null;
-            if (m_manager == null)
+            if (m_manager == null || admin == null)
             {
+                MetaQuotes.MT5CommonAPI.MTRetCode adminRes = MetaQuotes.MT5CommonAPI.MTRetCode.MT_RET_ERROR;
                 MetaQuotes.MT5CommonAPI.MTRetCode res = MetaQuotes.MT5CommonAPI.MTRetCode.MT_RET_ERROR;
                 //--- loading manager API
                 if ((res = SMTManagerAPIFactory.Initialize(@"C:\MetaTrader5SDK\Libs")) != MetaQuotes.MT5CommonAPI.MTRetCode.MT_RET_OK) //Auth.MAN_API_PATH
@@ -95,7 +97,6 @@ namespace Goorge
                                                CIMTManagerAPI.EnPumpModes.PUMP_MODE_GROUPS |
                                                CIMTManagerAPI.EnPumpModes.PUMP_MODE_USERS | CIMTManagerAPI.EnPumpModes.PUMP_MODE_POSITIONS |
                                                CIMTManagerAPI.EnPumpModes.PUMP_MODE_ORDERS, 30000);
-
                 if (res == MTRetCode.MT_RET_OK)
                 {
                     CTickClass cTick = new CTickClass();
@@ -113,26 +114,6 @@ namespace Goorge
                     orderService.Initialize(m_manager);
                     groupService.Initialize(m_manager);
                     Console.WriteLine("Initialized");
-                    //if ((res = m_dealer.Initialize(m_manager)) != MTRetCode.MT_RET_OK)
-                    //{
-                    //    m_manager.LoggerOut(EnMTLogCode.MTLogErr, "Dealer: creating request sink failed");
-                    //    return ("Dealer: creating request sink failed");
-                    //}
-                    //if ((res = cTick.Initialize(m_manager)) != MTRetCode.MT_RET_OK)
-                    //{
-                    //    m_manager.LoggerOut(EnMTLogCode.MTLogErr, "Tick: creating request sink failed");
-                    //    return ("Tick: creating request sink failed");
-                    //}
-                    //{
-                    //    m_manager.LoggerOut(EnMTLogCode.MTLogErr, "Tick: creating request sink failed");
-                    //    return ("Tick: creating request sink failed");
-                    //}
-                    //_manager = new CManager();
-                    //if ((res = _manager.Initialize(m_manager)) != MTRetCode.MT_RET_OK)
-                    //{
-                    //    m_manager.LoggerOut(EnMTLogCode.MTLogErr, "Manager: creating request sink failed");
-                    //    return ("Manager: creating request sink failed");
-                    //}
                 }
                 if (res != MetaQuotes.MT5CommonAPI.MTRetCode.MT_RET_OK)
                 {
@@ -221,6 +202,24 @@ namespace Goorge
             var response = userService.UserUpdateLeverage(login, leverage);
             return response;
         }
+        public static ReturnModel UserAccountGetEquity(ulong login)
+        {
+            return accountService.UserAccountGetEquity(login);
+        }
+        public static ReturnModel UserAccountsGetEquity(ulong[] login)
+        {
+            return accountService.UserAccountGetEquity(login);
+        }
+        public static ReturnModel UserAccountsGetEquityByGroup(string group)
+        {
+            var acc = accountService.UserAccountGetLoginsByGroup(group).Data as ulong[];
+            if (acc != null)
+            {
+                var returnModel = accountService.UserAccountGetEquity(acc);
+                return returnModel;
+            }
+            return new ReturnModel();
+        }
         #endregion
 
     #region Users
@@ -244,10 +243,6 @@ namespace Goorge
         public static ReturnModel GetUserLoginsByGroup(string group)
         {
             return userService.GetUserLoginsByGroup(group);
-        }
-        public static ReturnModel GetUserEquity(ulong login)
-        {
-            return userService.GetUserEquity(login);
         }
         public static ReturnModel GetUserRights(ulong login)
         {
@@ -462,13 +457,67 @@ namespace Goorge
         {    
             return positionService.PositionRequest(login);
         }
-        public static ReturnModel PositionCloseRequest(ulong login, long from, long to)
+        public static ReturnModel ClosePositionRequest(ulong login, long from, long to)
         {
-            return positionService.PositionCloseRequest(login,from,to);
+            ReturnModel returnModel = new ReturnModel();
+            var res = dealerService.DealsRequest(login, from, to).Data as List<DealModel>;
+            var deals = new Dictionary<ulong, DealModel>();
+
+            foreach (var deal in res)
+            {
+                if (!deals.ContainsKey(deal.PositionID) && deal.Entry == 1)
+                {
+                    //Console.WriteLine("Positions: " + deal.PositionID);
+                    deals.Add(deal.PositionID, deal);
+                }
+            }
+            //Console.WriteLine("Positions Total: " + deals.Count);
+            returnModel.Data = deals;
+            returnModel.TotalCount = deals.Count;
+            return returnModel;
         }
         public static ReturnModel PositionsGetAll(ulong login, long from, long to)
         {
-            return positionService.PositionsGetAll(login, from, to);
+            ReturnModel returnModel = new ReturnModel();
+            var res = dealerService.DealsRequest(login, from, to).Data as List<DealModel>;
+            var deals = new Dictionary<ulong, DealModel>();
+
+            foreach (var deal in res)
+            {
+                if (!deals.ContainsKey(deal.PositionID) && deal.PositionID != 0)
+                {
+                    //Console.WriteLine("Positions: " + deal.PositionID);
+                    deals.Add(deal.PositionID,deal);
+                }
+            }
+            //Console.WriteLine("Positions Total: " + deals.Count);
+            returnModel.Data = deals;
+            returnModel.TotalCount = deals.Count;
+            return returnModel;
+        }
+        public static ReturnModel PositionsGetAllPaginated(ulong login, long from, long to, int pageNumber, int pageSize)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            var res = dealerService.DealsRequest(login, from, to).Data as List<DealModel>;
+            var deals = new Dictionary<ulong, DealModel>();
+
+            foreach (var deal in res)
+            {
+                if (!deals.ContainsKey(deal.PositionID) && deal.PositionID != 0)
+                {
+                    //Console.WriteLine("Positions: " + deal.PositionID);
+                    deals.Add(deal.PositionID, deal);
+                }
+            }
+            var paginatedDeals = deals.Values
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            //Console.WriteLine("Positions Total: " + deals.Count);
+            returnModel.Data = paginatedDeals;
+            returnModel.TotalCount = deals.Count;
+            return returnModel;
         }
         public static ReturnModel PositionRequest(ulong login, int pageNumber, int pageSize)
         {
@@ -810,6 +859,23 @@ namespace Goorge
                     returnModel.Message = returnModel.MTRetCode.ToString();
                 }
             }
+            return returnModel;
+        }
+        public static ReturnModel DealRequestByPosition(ulong positionId)
+        {
+            ReturnModel returnModel = new ReturnModel();
+
+            var pos = PositionRequestByTicket(positionId).Data as PositionModel;
+            if(pos == null) { returnModel.Message = "Position Not FOund"; return returnModel; }
+            var deals = GetAllDeal(pos.Login, pos.TimeCreated, pos.TimeCreated).Data as List<DealModel>;
+            if (pos == null) { returnModel.Message = "Deals Not FOund"; return returnModel; }
+            List<DealModel> dealList = new List<DealModel>();
+            foreach (var deal in deals)
+            {
+                dealList.Add(deal);
+            }
+            returnModel.Data = dealList;
+            returnModel.Message = string.Format("Total Deals is '{0}' ", dealList.Count);
             return returnModel;
         }
         public static ReturnModel DealCommissionUpdate(ulong ticket, double commission)
