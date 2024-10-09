@@ -28,6 +28,7 @@ namespace Goorge.Model
         public string Email { get; set; }
         public string ID { get; set; }
         public long LastAccess { get; set; }
+        public long Registration { get; set; }
         public string LastIP { get; set; }
         public string LastName { get; set; }
         public long LastPassChange { get; set; }
@@ -94,6 +95,7 @@ namespace Goorge.Model
             Name = user.Name();
             Phone = user.Phone();
             State = user.State();
+            Registration = user.Registration();
         }
         public UserModel()
         {

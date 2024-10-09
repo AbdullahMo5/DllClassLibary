@@ -35,6 +35,97 @@ namespace Goorge.Services
             }
             return returnModel;
         }
+        public ReturnModel UserAccountDetailsGet(ulong login)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            UserModel userRes = null;
+            AccountModel accountRes = null;
+            AccountDetailsModel detailsModel = null;
+
+            try
+            {
+                using (var user = managerAPI.UserCreate())
+                {
+                    MTRetCode request = managerAPI.UserGet(login, user);
+                    returnModel.MTRetCode = request;
+                    if (request == MTRetCode.MT_RET_OK)
+                    {
+                        userRes = new UserModel(user);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                returnModel.Message = ex.InnerException.Message;
+            }
+
+            using (CIMTAccount account = managerAPI.UserCreateAccount())
+            {
+                MTRetCode accountGetRequest = managerAPI.UserAccountGet(login, account);
+                returnModel.MTRetCode = accountGetRequest;
+                if (accountGetRequest == MTRetCode.MT_RET_OK)
+                {
+                    accountRes = new AccountModel(account);                  
+                    if (userRes != null && accountRes != null)
+                    {
+                        detailsModel = new AccountDetailsModel(accountRes, userRes);
+                    }
+                    returnModel.Data = detailsModel;
+                }
+            }
+            return returnModel;
+        }
+        public ReturnModel UserAccountsDetailsGetByLogins(ulong[] logins)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            List<AccountModel> accountList = new List<AccountModel>();
+            List<UserModel> userList = new List<UserModel>();
+            List<AccountDetailsModel> detailList = new List<AccountDetailsModel>();
+
+            try
+            {
+                using (CIMTUserArray users = managerAPI.UserCreateArray())
+                {
+                    returnModel.MTRetCode = managerAPI.UserRequestByLogins(logins, users);
+                    if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
+                    {
+                        foreach (var item in users.ToArray())
+                        {
+                            userList.Add(new UserModel(item));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                returnModel.Message = ex.InnerException.Message;
+            }
+            using (var accountsArray = managerAPI.UserCreateAccountArray())
+            {
+                var response = managerAPI.UserAccountRequestByLogins(logins, accountsArray);
+                returnModel.MTRetCode = response;
+                if (response == MTRetCode.MT_RET_OK)
+                {
+                    foreach (var item in accountsArray.ToArray())
+                    {
+                        accountList.Add(new AccountModel(item));
+                    }
+                }
+            }
+            if(accountList.Count == userList.Count)
+            {
+                for (int i = 0; i < accountList.Count; i++)
+                {
+                    detailList.Add(new AccountDetailsModel(accountList[i], userList[i]));
+                }
+            }
+            else { returnModel.Message = "Couldn't Merge as Some Users doesn't have Trading account"; }
+            returnModel.Data = detailList;
+            returnModel.TotalCount = detailList.Count;
+            return returnModel;
+        }
         public ReturnModel UserAccountGetByLogin(ulong login)
         {
             ReturnModel returnModel = new ReturnModel();
@@ -53,15 +144,19 @@ namespace Goorge.Services
         public ReturnModel UserAccountsGetByLogins(ulong[] logins)
         {
             ReturnModel returnModel = new ReturnModel();
+            List<AccountModel> accountList = new List<AccountModel>();
             using (var accountsArray = managerAPI.UserCreateAccountArray())
             {
                 var response = managerAPI.UserAccountRequestByLogins(logins, accountsArray);
                 returnModel.MTRetCode = response;
                 if (response == MTRetCode.MT_RET_OK)
                 {
-                    returnModel.Data = accountsArray;
+                    foreach (var item in accountsArray.ToArray())
+                    {
+                        accountList.Add(new AccountModel(item));
+                    }
+                    returnModel.TotalCount = Convert.ToInt32(accountsArray.Total());
                 }
-
             }
             return returnModel;
 

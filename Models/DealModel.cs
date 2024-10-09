@@ -55,6 +55,7 @@ namespace Goorge.Models
             MarketAsk = 0;
             MarketLast = 0;
             ModificationFlags = 0;
+            Deal = 0;
         }
         public DealModel(CIMTDeal deal)
         {
@@ -100,8 +101,10 @@ namespace Goorge.Models
             MarketAsk = deal.MarketAsk();
             MarketLast = deal.MarketLast();
             ModificationFlags = deal.ModificationFlags();
+            Deal = deal.Deal();         
 
         }
+        public ulong Deal { get; set; }
         public string Print { get; set; }
         public string ExternalID { get; set; }
         public ulong Login { get; set; }

@@ -61,6 +61,27 @@ namespace Goorge.Services
 
             return returnModel;
         }
+        public ReturnModel PendingHistoryRequestByLogin(ulong[] logins, long from, long to)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            List<OrderModel> orderList = new List<OrderModel>();
+            using (CIMTOrderArray Orders = managerAPI.OrderCreateArray())
+            {
+                returnModel.MTRetCode = managerAPI.HistoryRequestByLogins(logins, from, to, Orders);
+                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
+                {
+                    foreach (var item in Orders.ToArray())
+                    {
+                        if(item.ActivationMode() == 1)
+                            orderList.Add(new OrderModel(item));
+                    }
+                }
+                returnModel.Data = orderList;
+                returnModel.TotalCount = orderList.Count();
+            }
+
+            return returnModel;
+        }
         public ReturnModel OrderRequestByLogin(ulong[] logins)
         {
             ReturnModel returnModel = new ReturnModel();
@@ -130,6 +151,14 @@ namespace Goorge.Services
                     returnModel.Data = ordersList;
                 }
             }
+
+            return returnModel;
+        }
+        public ReturnModel DeleteOrder(ulong ticket)
+        {
+            ReturnModel returnModel = new ReturnModel();
+
+            returnModel.MTRetCode = managerAPI.OrderDelete(ticket);
 
             return returnModel;
         }

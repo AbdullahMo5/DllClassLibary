@@ -100,6 +100,7 @@
     <Compile Include="Deals.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Manager.cs" />
+    <Compile Include="Models\AccountDetailsModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\CreateUserModel.cs" />
     <Compile Include="Models\DealModel.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Models\PositionModel.cs" />
     <Compile Include="Models\ReturnModel.cs" />
     <Compile Include="Models\TickModel.cs" />
+    <Compile Include="Models\UpdateUserModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="OrderSink.cs" />
     <Compile Include="Positions.cs" />

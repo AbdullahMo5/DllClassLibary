@@ -1,20 +1,16 @@
 ﻿using Goorge.Model;
-using Goorge.Models;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 
 namespace Goorge.Services
 {
     class UserService:IService
     {
         private CIMTManagerAPI managerAPI = null;
+        private CIMTAdminAPI adminAPI = null;
         public void Initialize(CIMTManagerAPI m_manager)
         {
             if (m_manager != null)
@@ -22,7 +18,17 @@ namespace Goorge.Services
                 managerAPI = m_manager;
             }
         }
-
+        public void Initialize(CIMTManagerAPI m_manager, CIMTAdminAPI m_admin)
+        {
+            if (m_manager != null)
+            {
+                managerAPI = m_manager;
+            }
+            if (m_admin != null)
+            {
+                adminAPI = m_admin;
+            }
+        }
         public ReturnModel CreateUser(CreateUserModel userModel)
         {
             ReturnModel returnModel = new ReturnModel();
@@ -42,7 +48,7 @@ namespace Goorge.Services
                     user.Country(userModel.country);
                     user.State(userModel.state);
                     user.Rights(CIMTUser.EnUsersRights.USER_RIGHT_ENABLED);
-                    returnModel.MTRetCode = managerAPI.UserAdd(user, userModel.password, userModel.password);
+                    returnModel.MTRetCode = managerAPI.UserAdd(user, userModel.master_password, userModel.investor_password);
                     if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
                     {
                         returnModel.Data = userModel;
@@ -53,11 +59,10 @@ namespace Goorge.Services
                     }
                 }
                 return returnModel;
-;
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.Message);   
+                Console.WriteLine(exception.Message);
                 returnModel.Message = exception.InnerException.Message;
             }
             return returnModel;
@@ -112,6 +117,11 @@ namespace Goorge.Services
             }
             return res;
         }
+        public MTRetCode ArchiveUser(ulong login)
+        {
+            MTRetCode res = adminAPI.UserArchive(login);
+            return res;
+        }
         public ReturnModel GetUserRights(ulong login)
         {
             ReturnModel returnModel = new ReturnModel();
@@ -134,7 +144,7 @@ namespace Goorge.Services
             }
             return returnModel;
         }
-        public ReturnModel SetUserRights(ulong login, ulong rights)
+        public ReturnModel SetUserRights(ulong login, uint rights)
         {
             ReturnModel returnModel = new ReturnModel();
             try
@@ -146,6 +156,7 @@ namespace Goorge.Services
                     if (request == MTRetCode.MT_RET_OK)
                     {
                         user.Rights((CIMTUser.EnUsersRights)rights);
+                        managerAPI.UserUpdate(user);
                         returnModel.Data = user.Rights();
                     }
                 }

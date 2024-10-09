@@ -17,6 +17,7 @@ using Goorge.Services;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using TradeRateSell;
+using static System.Net.Mime.MediaTypeNames;
 //+----------------------------------------------------------------------+
 //|                                                                      |
 //+----------------------------------------------------------------------+
@@ -97,22 +98,13 @@ namespace Goorge
             {
                 Console.WriteLine("Connect success");
             }
+            //Console.WriteLine(ConnectionMT5API.ConnectMT5server("57.128.141.193", 443, 76500, "Mahoyku@1903"));
+            //Console.WriteLine(ConnectionMT5API.ConnectMT5server("193.30.23.130", 443, 2010, "*bWzQu5m"));
             Console.WriteLine(ConnectionMT5API.ConnectMT5server("198.244.201.65", 1950, 2023, "123Nm,.com"));
 
-            long from = ((DateTimeOffset)DateTime.Now.AddYears(-1).Date).ToUnixTimeSeconds();
-            long to = ((DateTimeOffset)DateTime.Now.Date).ToUnixTimeSeconds();
+            var response2 = ConnectionMT5API.ArchiveUser(1001);
 
-            //var response = ConnectionMT5API.UserAccountsGetEquityByGroup("demo\\demoforex").Data;
-            var response = ConnectionMT5API.PositionsGetAll(880413, from, to).Data;
-
-            Console.WriteLine("From: " + from);
-            Console.WriteLine("To: " + to);
-
-            //foreach (var item in response)
-            //{
-            //    Console.WriteLine("User Position: " + item.PositionID);
-            //}
-            //Console.WriteLine("Total Number: "+ response.Count);
+            Console.WriteLine("Response: " + response2.MTRetCode);
 
             Console.WriteLine("Press any Key To Close......");
             Console.ReadLine();

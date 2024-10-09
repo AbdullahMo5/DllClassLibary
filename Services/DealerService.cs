@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using TradeRateSell;
 
 namespace Goorge.Services
@@ -52,8 +53,7 @@ namespace Goorge.Services
                     model.TotalCount = dealsList.Count;
                 }
 
-            }
-            
+            }           
             return model;        
         }
        public void DealAdd() { }
@@ -464,11 +464,42 @@ namespace Goorge.Services
                     {
                         returnModel.Message = m_request.ResultRetcode().ToString();
                     }
-                }
-             
+                }            
             return returnModel;
         }
-       public ReturnModel DealerSendCloseAndModifyPosition(CDealer m_dealer, ulong login, double orderPrice, ulong volume, int enTradeAction, int enOrderType, string symbol, double priceSL, double priceTP, ulong positionId)
+        public ReturnModel DealerClosePositions(CDealer m_dealer, ulong login)
+        {
+            ReturnModel returnModel = new ReturnModel();
+            List<string> message = new List<string>();
+
+            using (CIMTPositionArray positions = managerAPI.PositionCreateArray())
+            {
+                returnModel.MTRetCode = managerAPI.PositionRequest(login, positions);
+                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
+                {
+                    foreach (var pos in positions.ToArray())
+                    {
+                        var request = managerAPI.RequestCreate();
+                        var type = pos.Action() == 0 ? CIMTOrder.EnOrderType.OP_SELL : CIMTOrder.EnOrderType.OP_BUY;
+
+                        request.Action(CIMTRequest.EnTradeActions.TA_DEALER_POS_EXECUTE);
+                        request.Login(login);
+                        request.Position(pos.Position());
+                        request.Volume(pos.Volume());
+                        request.Symbol(pos.Symbol());
+                        request.TypeFill(CIMTOrder.EnOrderFilling.ORDER_FILL_FOK);
+                        request.Type(type);
+
+                        var resp = managerAPI.DealerSend(request, m_dealer, out uint id);
+                        message.Add($"Position {pos.Position()} Close Response: {resp}");
+                    }
+                }
+            }
+            returnModel.TotalCount = message.Count;
+            returnModel.Data = message;
+            return returnModel;
+        }
+        public ReturnModel DealerSendCloseAndModifyPosition(CDealer m_dealer, ulong login, double orderPrice, ulong volume, int enTradeAction, int enOrderType, string symbol, double priceSL, double priceTP, ulong positionId)
         {
             ReturnModel returnModel = new ReturnModel();
 

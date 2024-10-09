@@ -48,7 +48,7 @@ namespace Goorge.Models
             MarginInitial = 0;
             MarginMaintainance = 0;
             Swap = 0;
-            Comission = 0;
+            //Comission = 0;
             Profit = 0;
             Floating = 0;
             CurrencyDigits = 0;
@@ -72,7 +72,7 @@ namespace Goorge.Models
         public double MarginInitial { get; set; }
         public double MarginMaintainance { get; set; }
         public double Swap { get; set; }
-        public double Comission { get; set; }
+        //public double Comission { get; set; }
         public double Profit { get; set; }
         public double Floating { get; set; }
         public uint CurrencyDigits { get; set; }

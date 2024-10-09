@@ -13,7 +13,8 @@ namespace Goorge.Model
         public ulong login { get; set; }
         public string group { get; set; }
         public string name { get; set; }
-        public string password { get; set; }
+        public string investor_password { get; set; }
+        public string master_password { get; set; }
         public string email { get; set; }
         public string country { get; set; }
         public string state { get; set; }

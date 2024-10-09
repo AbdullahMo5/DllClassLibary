@@ -107,7 +107,6 @@ namespace Goorge.Model
             TimeCreatedMsc = position.TimeCreateMsc();
             TimeUpdated = position.TimeUpdate();
             TimeUpdatedMsc = position.TimeUpdateMsc();
-           
 
         }
 
