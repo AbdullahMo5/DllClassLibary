@@ -1,15 +1,8 @@
 ﻿using Goorge.Model;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
-using TradeRateSell;
 
 namespace Goorge.Services
 {
@@ -50,8 +43,10 @@ namespace Goorge.Services
             using (CIMTOrderArray Orders = managerAPI.OrderCreateArray())
             {
                 returnModel.MTRetCode = managerAPI.HistoryRequestByLogins(logins, from, to, Orders);
-                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK){
-                    foreach (var item in Orders.ToArray()){
+                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
+                {
+                    foreach (var item in Orders.ToArray())
+                    {
                         orderList.Add(new OrderModel(item));
                     }
                 }
@@ -72,7 +67,7 @@ namespace Goorge.Services
                 {
                     foreach (var item in Orders.ToArray())
                     {
-                        if(item.ActivationMode() == 1)
+                        if (item.ActivationMode() == 1)
                             orderList.Add(new OrderModel(item));
                     }
                 }
@@ -90,13 +85,13 @@ namespace Goorge.Services
                 returnModel.MTRetCode = managerAPI.OrderGetByLogins(logins, Orders);
                 if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
                 {
-                    List<OrderModel>ordersList = new List<OrderModel>();
+                    List<OrderModel> ordersList = new List<OrderModel>();
                     foreach (var item in Orders.ToArray())
                     {
                         ordersList.Add(new OrderModel(item));
                     }
                     returnModel.Data = ordersList;
-                    returnModel.TotalCount=ordersList.Count();
+                    returnModel.TotalCount = ordersList.Count();
                 }
             }
 
@@ -144,7 +139,7 @@ namespace Goorge.Services
                 returnModel.MTRetCode = managerAPI.OrderRequestByGroup(groupMask, Orders);
                 if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
                 {
-                    foreach(var item in Orders.ToArray())
+                    foreach (var item in Orders.ToArray())
                     {
                         ordersList.Add(new OrderModel(item));
                     }

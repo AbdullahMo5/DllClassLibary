@@ -3,10 +3,7 @@ using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading;
-using TradeRateSell;
 
 namespace Goorge.Services
 {
@@ -15,7 +12,7 @@ namespace Goorge.Services
         private CIMTManagerAPI managerAPI = null;
         public void Initialize(CIMTManagerAPI m_manager)
         {
-            if(m_manager != null)
+            if (m_manager != null)
             {
                 managerAPI = m_manager;
             }
@@ -75,7 +72,7 @@ namespace Goorge.Services
                 {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.Data= positionList;
+                returnModel.Data = positionList;
             }
             returnModel.TotalCount = Convert.ToInt32(positionsArray.Total());
             return returnModel;
@@ -95,7 +92,7 @@ namespace Goorge.Services
                 {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.Data= positionList;
+                returnModel.Data = positionList;
             }
             returnModel.TotalCount = Convert.ToInt32(positionsArray.Total());
             return returnModel;
@@ -107,7 +104,7 @@ namespace Goorge.Services
             List<PositionModel> positionList = new List<PositionModel>();
 
             var positionsArray = managerAPI.PositionCreateArray();
-            var result = managerAPI.PositionGetBySymbol(group,symbol, positionsArray);
+            var result = managerAPI.PositionGetBySymbol(group, symbol, positionsArray);
             returnModel.MTRetCode = result;
             if (result == MTRetCode.MT_RET_OK)
             {
@@ -115,13 +112,13 @@ namespace Goorge.Services
                 {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.Data= positionList;
+                returnModel.Data = positionList;
             }
             returnModel.TotalCount = Convert.ToInt32(positionsArray.Total());
             return returnModel;
 
         }
-        public ReturnModel PositionsRequestByGroup( string group)
+        public ReturnModel PositionsRequestByGroup(string group)
         {
             ReturnModel returnModel = new ReturnModel();
             List<PositionModel> positionList = new List<PositionModel>();
@@ -135,13 +132,13 @@ namespace Goorge.Services
                 {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.Data= positionList;
+                returnModel.Data = positionList;
             }
             returnModel.TotalCount = Convert.ToInt32(positionsArray.Total());
             return returnModel;
 
         }
-        public ReturnModel PositionsRequestByLogins( ulong[] logins)
+        public ReturnModel PositionsRequestByLogins(ulong[] logins)
         {
             ReturnModel returnModel = new ReturnModel();
             List<PositionModel> positionList = new List<PositionModel>();
@@ -155,7 +152,7 @@ namespace Goorge.Services
                 {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.Data= positionList;
+                returnModel.Data = positionList;
             }
             returnModel.TotalCount = Convert.ToInt32(positionsArray.Total());
             return returnModel;
@@ -175,36 +172,39 @@ namespace Goorge.Services
                 {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.Data= positionList;
+                returnModel.Data = positionList;
             }
             returnModel.TotalCount = Convert.ToInt32(positionsArray.Total());
             return returnModel;
         }
-        public ReturnModel PositionRequestByTicket( ulong ticket)
+        public ReturnModel PositionRequestByTicket(ulong ticket)
         {
             ReturnModel returnModel = new ReturnModel();
             var position = managerAPI.PositionCreate();
             var result = managerAPI.PositionGetByTicket(ticket, position);
             returnModel.MTRetCode = result;
-            if (result == MTRetCode.MT_RET_OK){
-                returnModel.Data= new PositionModel(position);
+            if (result == MTRetCode.MT_RET_OK)
+            {
+                returnModel.Data = new PositionModel(position);
             }
             return returnModel;
 
         }
-        public ReturnModel PositionRequestByTickets( ulong[] ticket)
+        public ReturnModel PositionRequestByTickets(ulong[] ticket)
         {
             ReturnModel returnModel = new ReturnModel();
             var positionList = new List<PositionModel>();
             var positions = managerAPI.PositionCreateArray();
             var result = managerAPI.PositionGetByTickets(ticket, positions);
             returnModel.MTRetCode = result;
-            if (result == MTRetCode.MT_RET_OK){
-                foreach(var item in positions.ToArray()){
+            if (result == MTRetCode.MT_RET_OK)
+            {
+                foreach (var item in positions.ToArray())
+                {
                     positionList.Add(new PositionModel(item));
                 }
-                returnModel.TotalCount= Convert.ToInt32(positions.Total());
-                returnModel.Data= positionList;
+                returnModel.TotalCount = Convert.ToInt32(positions.Total());
+                returnModel.Data = positionList;
             }
             return returnModel;
 

@@ -1,6 +1,4 @@
 ﻿using Goorge.Model;
-using MetaQuotes.MT5CommonAPI;
-using System.Text.RegularExpressions;
 
 namespace Goorge.Models
 {
@@ -23,7 +21,7 @@ namespace Goorge.Models
         }
         public UpdateUserModel()
         {
-            
+
         }
     }
 }

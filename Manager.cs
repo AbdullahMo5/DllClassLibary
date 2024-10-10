@@ -3,13 +3,9 @@
 //|                       Copyright 2001-2019, MetaQuotes Software Corp. |
 //|                                            http://www.metaquotes.net |
 //+----------------------------------------------------------------------+
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
+using System;
 //+----------------------------------------------------------------------+
 //|                                                                      |
 //+----------------------------------------------------------------------+

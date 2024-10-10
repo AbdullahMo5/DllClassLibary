@@ -5,35 +5,31 @@
 //+----------------------------------------------------------------------+
 namespace Goorge
 {
-//+----------------------------------------------------------------------+
-//|                                                                      |
-//+----------------------------------------------------------------------+
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using MetaQuotes.MT5CommonAPI;
     using MetaQuotes.MT5ManagerAPI;
+    //+----------------------------------------------------------------------+
+    //|                                                                      |
+    //+----------------------------------------------------------------------+
+    using System;
     //+------------------------------------------------------------------+
     //|                                                                  |
     //+------------------------------------------------------------------+
-    class CBooks: CIMTBookSink
+    class CBooks : CIMTBookSink
     {
-      CIMTManagerAPI m_manager = null;     
-       //+---------------------------------------------------------------+
-       //| Init native implementation                                    |
-       //+---------------------------------------------------------------+
+        CIMTManagerAPI m_manager = null;
+        //+---------------------------------------------------------------+
+        //| Init native implementation                                    |
+        //+---------------------------------------------------------------+
         public MTRetCode Initialize(CIMTManagerAPI manager)
         {
             //--- checking
-            if(manager==null) return (MTRetCode.MT_RET_ERR_PARAMS);
+            if (manager == null) return (MTRetCode.MT_RET_ERR_PARAMS);
             //---
             Console.WriteLine("CBooks initialize success");
             //--- 
-            m_manager=manager;
+            m_manager = manager;
             //---
-            return(RegisterSink());
+            return (RegisterSink());
         }
         //+---------------------------------------------------------------+
         //|                                                               |
@@ -42,7 +38,7 @@ namespace Goorge
         {
             string message = string.Empty;
             Console.WriteLine("i'm working");
-            message=string.Format("OnBook for {0}, total items {1}", book.symbol, book.items_total);
+            message = string.Format("OnBook for {0}, total items {1}", book.symbol, book.items_total);
             Console.WriteLine(message);
         }
     }

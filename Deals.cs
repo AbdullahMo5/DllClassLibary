@@ -3,14 +3,9 @@
 //+--------------------------------------------------------------------------+
 namespace TradeRateSell
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Threading;
     using MetaQuotes.MT5CommonAPI;
     using MetaQuotes.MT5ManagerAPI;
+    using System;
     //+----------------------------------------------------------------------+
     //| Dealer request sink                                                  |
     //+----------------------------------------------------------------------+
@@ -44,7 +39,7 @@ namespace TradeRateSell
         {
             string message = string.Empty;
 
-            message = string.Format("OnDealAdd deal = {0}, position = {1}, order = {2}, volume = {3}, Action = {4}, Entry = {5} ,  Profit = {6}", deal.Deal(), deal.PositionID(), deal.Order(), deal.Volume(),deal.Action(),deal.Entry(), deal.Profit());
+            message = string.Format("OnDealAdd deal = {0}, position = {1}, order = {2}, volume = {3}, Action = {4}, Entry = {5} ,  Profit = {6}", deal.Deal(), deal.PositionID(), deal.Order(), deal.Volume(), deal.Action(), deal.Entry(), deal.Profit());
             Console.WriteLine(message);
             //---
         }
@@ -52,7 +47,7 @@ namespace TradeRateSell
         {
             //EventArgs e = this;
             string message = string.Empty;
-            message = string.Format("OnDealAdd deal = {0}, position = {1}, order = {2}, volume = {3} , Profit = {4}", deal.Deal(), deal.PositionID(), deal.Order(), deal.Volume(),deal.Profit());
+            message = string.Format("OnDealAdd deal = {0}, position = {1}, order = {2}, volume = {3} , Profit = {4}", deal.Deal(), deal.PositionID(), deal.Order(), deal.Volume(), deal.Profit());
             Console.WriteLine(message);
             //---
         }

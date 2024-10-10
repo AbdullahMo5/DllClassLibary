@@ -1,19 +1,14 @@
 ﻿using MetaQuotes.MT5CommonAPI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Goorge.Model
 {
     public class UserModel
     {
         public string Account { get; set; }
-        public string Address { get;set; }
+        public string Address { get; set; }
         public double Balance { get; set; }
-        public string City { get;set; }
-        public ulong ClientId { get;set; }
+        public string City { get; set; }
+        public ulong ClientId { get; set; }
         public uint Color { get; set; }
         public string Comment { get; set; }
         public double CommissionAgentDaily { get; set; }
@@ -99,7 +94,7 @@ namespace Goorge.Model
         }
         public UserModel()
         {
-                
+
         }
 
 

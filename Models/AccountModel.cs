@@ -1,9 +1,4 @@
 ﻿using MetaQuotes.MT5CommonAPI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Goorge.Models
 {
@@ -77,7 +72,7 @@ namespace Goorge.Models
         public double Floating { get; set; }
         public uint CurrencyDigits { get; set; }
         public double Credit { get; set; }
-        public uint SOActivation { get; set; }  
+        public uint SOActivation { get; set; }
         public long SOTime { get; set; }
         public double SOLevel { get; set; }
         public double SOEquity { get; set; }

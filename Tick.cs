@@ -1,14 +1,10 @@
 ﻿using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Goorge
 {
-   public class CTickClass : CIMTTickSink
+    public class CTickClass : CIMTTickSink
     {
         CIMTManagerAPI m_manager = null;
         //+---------------------------------------------------------------+

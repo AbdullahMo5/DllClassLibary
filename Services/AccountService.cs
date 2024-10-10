@@ -4,10 +4,6 @@ using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 
 namespace Goorge.Services
 {
@@ -66,7 +62,7 @@ namespace Goorge.Services
                 returnModel.MTRetCode = accountGetRequest;
                 if (accountGetRequest == MTRetCode.MT_RET_OK)
                 {
-                    accountRes = new AccountModel(account);                  
+                    accountRes = new AccountModel(account);
                     if (userRes != null && accountRes != null)
                     {
                         detailsModel = new AccountDetailsModel(accountRes, userRes);
@@ -114,7 +110,7 @@ namespace Goorge.Services
                     }
                 }
             }
-            if(accountList.Count == userList.Count)
+            if (accountList.Count == userList.Count)
             {
                 for (int i = 0; i < accountList.Count; i++)
                 {

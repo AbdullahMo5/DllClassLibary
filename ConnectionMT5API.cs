@@ -3,16 +3,11 @@ using Goorge.Models;
 using Goorge.Services;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
-using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using TradeRateSell;
-using static IMTRequest;
 
 namespace Goorge
 {
@@ -36,6 +31,7 @@ namespace Goorge
         private static DealerService dealerService = null;
         private static OrderServices orderService = null;
         private static GroupService groupService = null;
+        private static SymbolService symbolService = null;
 
         //+----------------------------------------------------------+
         //|                                                          |
@@ -109,12 +105,14 @@ namespace Goorge
                     dealerService = new DealerService();
                     orderService = new OrderServices();
                     groupService = new GroupService();
+                    symbolService = new SymbolService();
                     userService.Initialize(m_manager, adminAPI);
                     positionService.Initialize(m_manager);
                     accountService.Initialize(m_manager);
                     dealerService.Initialize(m_manager);
                     orderService.Initialize(m_manager);
                     groupService.Initialize(m_manager);
+                    symbolService.Initialize(m_manager);
                     Console.WriteLine("Initialized");
                 }
                 if (res != MetaQuotes.MT5CommonAPI.MTRetCode.MT_RET_OK)
@@ -137,7 +135,7 @@ namespace Goorge
         //|                                                          |
         //+----------------------------------------------------------+
 
-    #region Accounts
+        #region Accounts
         public static ReturnModel AccountGetAll()
         {
             var returnModel = new ReturnModel();
@@ -174,7 +172,7 @@ namespace Goorge
         public static ReturnModel AccountGetByGroup(string group)
         {
             return accountService.UserAccountsGetByGroup(group);
-        }        
+        }
         public static MTChartBar[] requestSymbolBars(string symbol, long from, long to)
         {
             if (m_manager != null)
@@ -232,7 +230,7 @@ namespace Goorge
         }
         #endregion
 
-    #region Users
+        #region Users
         public static ReturnModel UserGetAll()
         {
             var returnModel = new ReturnModel();
@@ -242,8 +240,8 @@ namespace Goorge
             foreach (var group in groups)
             {
                 var userModel = userService.GetUsersByGroup(group.Group).Data as List<UserModel>;
-                if(userModel!=null)
-                returnModels.AddRange(userModel);
+                if (userModel != null)
+                    returnModels.AddRange(userModel);
             }
             returnModel.Data = returnModels;
             returnModel.TotalCount = returnModels.Count;
@@ -285,17 +283,17 @@ namespace Goorge
         }
         public static ReturnModel GetUser(ulong login)
         {
-            var user = userService.GetUser(login);            
+            var user = userService.GetUser(login);
             return user;
         }
         public static ReturnModel UpdateUser(CreateUserModel model)
         {
-            var resp = userService.UpdateUser(model);            
+            var resp = userService.UpdateUser(model);
             return resp;
         }
         public static MTRetCode ChangePassword(ulong login, string password, uint passType)
         {
-            var response = userService.ChangePassword(passType,login, password);
+            var response = userService.ChangePassword(passType, login, password);
             return response.MTRetCode;
         }
         public static MTRetCode UserDelete(ulong login)
@@ -305,7 +303,7 @@ namespace Goorge
         }
         public static ReturnModel UserRequest(ulong login)
         {
-            var resp = userService.GetUser(login);            
+            var resp = userService.GetUser(login);
             return resp;
         }
         public static ReturnModel UserAccountGet(ulong login)
@@ -315,11 +313,11 @@ namespace Goorge
         }
         public static ReturnModel PasswordCheck(int type, ulong login, string password)
         {
-            return userService.UserPasswordCheck(type, login, password);            
+            return userService.UserPasswordCheck(type, login, password);
         }
         public static ReturnModel UserBalanceCheck(ulong login, bool fixflag)
         {
-            return userService.GetUserBalance(login, fixflag);            
+            return userService.GetUserBalance(login, fixflag);
         }
         public static ReturnModel UserBalanceCheck(ulong[] logins)
         {
@@ -331,7 +329,7 @@ namespace Goorge
         }
         public static ReturnModel UserRequestArray(string group)
         {
-            return  userService.GetUsersByGroup(group);
+            return userService.GetUsersByGroup(group);
         }
         public static ReturnModel UserCertGet(ulong login)
         {
@@ -359,13 +357,13 @@ namespace Goorge
 
         public static ReturnModel UserRequestByLogins(ulong[] logins)
         {
-           var res = userService.GetUserByLogins(logins);
+            var res = userService.GetUserByLogins(logins);
             return res;
         }
 
         #endregion
 
-    #region History   
+        #region History   
         public static ReturnModel HistoryRequest(ulong login, long from, long to)
         {
             return orderService.HistoryRequest(login, from, to);
@@ -466,11 +464,11 @@ namespace Goorge
 
             return returnModel;
         }
-    #endregion
+        #endregion
 
-    #region Positions    
+        #region Positions    
         public static ReturnModel PositionRequest(ulong login)
-        {    
+        {
             return positionService.PositionRequest(login);
         }
         public static ReturnModel ClosePositionRequest(ulong login, long from, long to)
@@ -478,7 +476,7 @@ namespace Goorge
             ReturnModel returnModel = new ReturnModel();
             var res = dealerService.DealsRequest(login, from, to);
             var dealList = res.Data as List<DealModel>;
-            if (dealList == null) { returnModel.Message = res.Message; returnModel.MTRetCode = res.MTRetCode;  return returnModel; }
+            if (dealList == null) { returnModel.Message = res.Message; returnModel.MTRetCode = res.MTRetCode; return returnModel; }
 
             //var deals = new Dictionary<ulong, DealModel>();
             var deals = new List<DealModel>();
@@ -543,11 +541,11 @@ namespace Goorge
             return positionService.PositionRequest(login, pageNumber, pageSize);
         }
         public static ReturnModel PositionRequestBySymbol(string symbol, string group)
-        {          
+        {
             return positionService.PositionsRequestBySymbol(group, symbol);
         }
         public static ReturnModel PositionRequestAll()
-        {      
+        {
             return positionService.PositionsRequestByGroupAll();
         }
         public static ReturnModel PositionRequestByLogins(ulong[] logins)
@@ -671,7 +669,7 @@ namespace Goorge
         {
             ulong[] logins = { login };
             return orderService.OrderRequestByLogin(logins);
-            
+
             ReturnModel returnModel = new ReturnModel();
             using (CIMTOrder order = m_manager.OrderCreate())
             {
@@ -706,7 +704,7 @@ namespace Goorge
                 returnModel.MTRetCode = m_manager.OrderGetByLogins(login, orders);
                 if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
                 {
-                    
+
                     foreach (var order in orders.ToArray())
                     {
                         var obj = new
@@ -822,8 +820,8 @@ namespace Goorge
         }
         public static ReturnModel GetAllDeal(ulong login, long from, long to)
         {
-            return dealerService.DealsRequest(login, from, to);    
-            
+            return dealerService.DealsRequest(login, from, to);
+
             ReturnModel returnModel = new ReturnModel();
             List<object> dealList = new List<object>();
             using (CIMTDealArray deals = m_manager.DealCreateArray())
@@ -874,7 +872,7 @@ namespace Goorge
             ReturnModel returnModel = new ReturnModel();
 
             var pos = PositionRequestByTicket(positionId).Data as PositionModel;
-            if(pos == null) { returnModel.Message = "Position Not FOund"; return returnModel; }
+            if (pos == null) { returnModel.Message = "Position Not FOund"; return returnModel; }
             var deals = GetAllDeal(pos.Login, pos.TimeCreated, pos.TimeCreated).Data as List<DealModel>;
             if (pos == null) { returnModel.Message = "Deals Not FOund"; return returnModel; }
             List<DealModel> dealList = new List<DealModel>();
@@ -915,9 +913,9 @@ namespace Goorge
             return returnModel;
         }
 
-    #endregion
+        #endregion
 
-    # region Dealer
+        #region Dealer
         public static ReturnModel DealerClosePositions(ulong login)
         {
             return dealerService.DealerClosePositions(m_dealer, login);
@@ -968,7 +966,7 @@ namespace Goorge
                 returnModel.Message = returnModel.MTRetCode.ToString();
             }
             return returnModel;
-        }        
+        }
         public static ReturnModel DealerSend(ulong login, double orderPrice, ulong volume, int enTradeAction, int enOrderType, string symbol, double priceSL, double priceTP)
         {
             return dealerService.DealerSend(m_dealer, login, orderPrice, volume, enTradeAction, enOrderType, symbol, priceSL, priceTP);
@@ -1438,7 +1436,7 @@ namespace Goorge
 
         #endregion
 
-    #region Book
+        #region Book
         public static MTBook GetBook(string symbol)
         {
             //ReturnModel returnModel = new ReturnModel();
@@ -1480,7 +1478,7 @@ namespace Goorge
         //returnModel.MTRetCode = m_manager.ChartRequest(symbol, from, to, )
         //}
 
-    #region Group
+        #region Group
         public static ReturnModel GetGroup(string group)
         {
             return groupService.GetGroup(group);
@@ -1494,9 +1492,23 @@ namespace Goorge
         {
             return groupService.GetAllGroups();
         }
-        public static ReturnModel UpdateGroup(GroupModel group) {
+        public static ReturnModel UpdateGroup(GroupModel group)
+        {
             return groupService.UpdateGroup(group);
         }
-    #endregion
+
+        public static ReturnModel CreateGroup(CreateGroupModel group)
+            => groupService.CreateGroup(group);
+
+        public static MTRetCode ChangeClientGroup(ulong login, string groupName)
+            => groupService.UserUpdateGroup(login, groupName);
+        #endregion
+
+        #region Symbol
+        public static ReturnModel GetAllSymbols()
+        {
+            return symbolService.GetAllSymbols();
+        }
+        #endregion
     }
 }

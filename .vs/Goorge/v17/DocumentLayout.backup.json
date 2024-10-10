@@ -3,16 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Goorge||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\connectionmt5api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:connectionmt5api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\models\\symbolmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -53,6 +56,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,24 +68,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Goorge",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Goorge.csproj",
+              "RelativeDocumentMoniker": "Goorge.csproj",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Goorge.csproj",
+              "RelativeToolTip": "Goorge.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-10T09:18:51.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Program.cs*",
-              "RelativeToolTip": "Program.cs*",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAowF8AAAAoAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowGcAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T07:20:01.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "UserModel.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\UserModel.cs",
               "RelativeDocumentMoniker": "Models\\UserModel.cs",
@@ -92,20 +110,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GroupService.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\GroupService.cs",
               "RelativeDocumentMoniker": "Services\\GroupService.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\GroupService.cs*",
-              "RelativeToolTip": "Services\\GroupService.cs*",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAowIIAAAAXAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\GroupService.cs",
+              "RelativeToolTip": "Services\\GroupService.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAALEAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T12:19:43.274Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Users.cs",
               "RelativeDocumentMoniker": "Users.cs",
@@ -118,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Manager.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Manager.cs",
               "RelativeDocumentMoniker": "Manager.cs",
@@ -131,20 +149,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ConnectionMT5API.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\ConnectionMT5API.cs",
               "RelativeDocumentMoniker": "ConnectionMT5API.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\ConnectionMT5API.cs",
               "RelativeToolTip": "ConnectionMT5API.cs",
-              "ViewState": "AgIAANMFAAAAAAAAAAAlwNwFAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAANQFAAAAAAAAAAAewN0FAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T09:55:03.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SymbolService.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\SymbolService.cs",
               "RelativeDocumentMoniker": "Services\\SymbolService.cs",
@@ -157,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SymbolModel.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\SymbolModel.cs",
               "RelativeDocumentMoniker": "Models\\SymbolModel.cs",
@@ -170,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
@@ -183,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "RequestSink.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\RequestSink.cs",
               "RelativeDocumentMoniker": "RequestSink.cs",
@@ -196,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Dealer.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Dealer.cs",
               "RelativeDocumentMoniker": "Dealer.cs",
@@ -209,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Books.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Books.cs",
               "RelativeDocumentMoniker": "Books.cs",
@@ -222,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Auth.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Auth.cs",
               "RelativeDocumentMoniker": "Auth.cs",

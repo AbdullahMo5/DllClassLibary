@@ -2,10 +2,6 @@
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Goorge.Services
 {
@@ -46,12 +42,12 @@ namespace Goorge.Services
             }
             return returnModel;
         }
-        public ReturnModel ChangePassword(uint type , string password)
+        public ReturnModel ChangePassword(uint type, string password)
         {
             ReturnModel returnModel = new ReturnModel();
             try
             {
-            MTRetCode res = _cIMTManager.PasswordChange(type, password);
+                MTRetCode res = _cIMTManager.PasswordChange(type, password);
                 returnModel.MTRetCode = res;
             }
             catch (Exception exception)

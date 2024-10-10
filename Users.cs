@@ -3,14 +3,9 @@
 //|                       Copyright 2001-2019, MetaQuotes Software Corp. |
 //|                                            http://www.metaquotes.net |
 //+----------------------------------------------------------------------+
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
+using System;
 //+----------------------------------------------------------------------+
 //|                                                                      |
 //+----------------------------------------------------------------------+
@@ -53,15 +48,15 @@ namespace Goorge
         {
             MTRetCode res = new MTRetCode();
             res = MTRetCode.MT_RET_OK_NONE;
-            if(m_manager == null)
+            if (m_manager == null)
             {
                 CManager manager_class = new CManager();
                 manager_class.Initialize(m_manager);
             }
-            using(CIMTUser user = m_manager.UserCreate())
+            using (CIMTUser user = m_manager.UserCreate())
             {
                 res = user.Leverage(400);
-                res= m_manager.UserUpdate(user);
+                res = m_manager.UserUpdate(user);
             }
 
 
@@ -71,7 +66,7 @@ namespace Goorge
 
 
 
-                //CIMTUser user;
+            //CIMTUser user;
             //    CSomeClientClass managerInit = new CSomeClientClass();
             //m_manager = managerInit.Initialize();
             //CIMTUser user = m_manager.UserCreate();

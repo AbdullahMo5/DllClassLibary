@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{35D21875-93EE-4659-9964-248E53383765}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Goorge</RootNamespace>
     <AssemblyName>Goorge</AssemblyName>
@@ -102,12 +102,14 @@
     <Compile Include="Manager.cs" />
     <Compile Include="Models\AccountDetailsModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\CreateGroupModel.cs" />
     <Compile Include="Models\CreateUserModel.cs" />
     <Compile Include="Models\DealModel.cs" />
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Models\PositionModel.cs" />
     <Compile Include="Models\ReturnModel.cs" />
+    <Compile Include="Models\SymbolModel.cs" />
     <Compile Include="Models\TickModel.cs" />
     <Compile Include="Models\UpdateUserModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Services\OrderServices.cs" />
     <Compile Include="Services\PositionService.cs" />
     <Compile Include="Services\Services.cs" />
+    <Compile Include="Services\SymbolService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="SomeClientClass.cs" />
     <Compile Include="Tick.cs" />

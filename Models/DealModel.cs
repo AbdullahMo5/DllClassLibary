@@ -1,11 +1,4 @@
 ﻿using MetaQuotes.MT5CommonAPI;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Goorge.Models
 {
@@ -49,7 +42,7 @@ namespace Goorge.Models
             Flags = 0;
             TimeMsc = 0;
             Reason = 0;
-            Gateway = "" ;
+            Gateway = "";
             PriceGateway = 0;
             MarketBid = 0;
             MarketAsk = 0;
@@ -63,17 +56,17 @@ namespace Goorge.Models
             ExternalID = deal.ExternalID();
             Login = deal.Login();
             Dealer = deal.Dealer();
-            Order = deal.Order();   
+            Order = deal.Order();
             Action = deal.Action();
             Entry = deal.Entry();
             Digits = deal.Digits();
             DigitsCurrency = deal.DigitsCurrency();
-            ContractSize = deal.ContractSize(); 
+            ContractSize = deal.ContractSize();
             Time = deal.Time();
             Symbol = deal.Symbol();
             Price = deal.Price();
             PriceTP = deal.PriceTP();
-            PriceSL = deal.PriceSL();   
+            PriceSL = deal.PriceSL();
             Volume = deal.Volume();
             VolumeExt = deal.VolumeExt();
             VolumeClosed = deal.VolumeClosed();
@@ -84,7 +77,7 @@ namespace Goorge.Models
             Commission = deal.Commission();
             Fee = deal.Fee();
             RateProfit = deal.RateProfit();
-            RateMargin= deal.RateMargin();
+            RateMargin = deal.RateMargin();
             ExpertID = deal.ExpertID();
             PositionID = deal.PositionID();
             Comment = deal.Comment();
@@ -101,7 +94,7 @@ namespace Goorge.Models
             MarketAsk = deal.MarketAsk();
             MarketLast = deal.MarketLast();
             ModificationFlags = deal.ModificationFlags();
-            Deal = deal.Deal();         
+            Deal = deal.Deal();
 
         }
         public ulong Deal { get; set; }
@@ -116,18 +109,18 @@ namespace Goorge.Models
         public uint DigitsCurrency { get; set; }
         public double ContractSize { get; set; }
         public long Time { get; set; }
-        public string Symbol{ get; set; }
-        public double Price{ get; set; }
-        public double PriceTP{ get; set; }
+        public string Symbol { get; set; }
+        public double Price { get; set; }
+        public double PriceTP { get; set; }
         public double PriceSL { get; set; }
-        public ulong Volume{ get; set; }
+        public ulong Volume { get; set; }
         public ulong VolumeExt { get; set; }
         public ulong VolumeClosed { get; set; }
         public ulong VolumeClosedExt { get; set; }
         public double Profit { get; set; }
-        public double Value{ get; set; }
-        public double Storage{ get; set; }
-        public double Commission{ get; set; }
+        public double Value { get; set; }
+        public double Storage { get; set; }
+        public double Commission { get; set; }
         public double Fee { get; set; }
         public double RateProfit { get; set; }
         public double RateMargin { get; set; }
@@ -151,11 +144,12 @@ namespace Goorge.Models
     }
     public class DealResponseModel
     {
-        public DealResponseModel(ulong ticket, MTRetCode response) {
+        public DealResponseModel(ulong ticket, MTRetCode response)
+        {
             Ticket = ticket;
             Response = response;
         }
         public ulong Ticket { get; set; }
-        public MTRetCode Response { get;set; }
+        public MTRetCode Response { get; set; }
     }
 }

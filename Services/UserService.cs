@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Goorge.Services
 {
-    class UserService:IService
+    class UserService : IService
     {
         private CIMTManagerAPI managerAPI = null;
         private CIMTAdminAPI adminAPI = null;
@@ -70,7 +70,8 @@ namespace Goorge.Services
         public ReturnModel UpdateUser(CreateUserModel user)
         {
             ReturnModel returnModel = new ReturnModel();
-            try{
+            try
+            {
                 using (CIMTUser c_user = managerAPI.UserCreate())
                 {
                     returnModel.MTRetCode = managerAPI.UserGet(user.login, c_user);
@@ -108,7 +109,7 @@ namespace Goorge.Services
             }
             return returnModel;
         }
-        public  MTRetCode DeleteUser(ulong login)
+        public MTRetCode DeleteUser(ulong login)
         {
             MTRetCode res = MTRetCode.MT_RET_OK_NONE;
             using (CIMTUser user = managerAPI.UserCreate())
@@ -210,25 +211,29 @@ namespace Goorge.Services
         public ReturnModel GetUser(ulong login)
         {
             ReturnModel returnModel = new ReturnModel();
-            try {
+            try
+            {
                 using (var user = managerAPI.UserCreate())
                 {
                     var request = managerAPI.UserGet(login, user);
-                    returnModel.MTRetCode = request;                
-                    if(request == MTRetCode.MT_RET_OK)
+                    returnModel.MTRetCode = request;
+                    if (request == MTRetCode.MT_RET_OK)
                     {
                         returnModel.Data = new UserModel(user);
                     }
                 }
-            
-            }catch(Exception ex) {
+
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
-                returnModel.Message = ex.InnerException.Message;    
+                returnModel.Message = ex.InnerException.Message;
             }
 
             return returnModel;
         }
-        public ReturnModel GetUserBalance(ulong login, bool fixflag) { 
+        public ReturnModel GetUserBalance(ulong login, bool fixflag)
+        {
             ReturnModel returnModel = new ReturnModel();
             double balance_user = 0;
             double balance_history = 0;
@@ -290,10 +295,11 @@ namespace Goorge.Services
             returnModel.Data = models;
             return returnModel;
         }
-        public ReturnModel GetUserByLogins(ulong[] logins) 
+        public ReturnModel GetUserByLogins(ulong[] logins)
         {
             ReturnModel returnModel = new ReturnModel();
-            try { 
+            try
+            {
                 List<UserModel> userList = new List<UserModel>();
                 using (CIMTUserArray users = managerAPI.UserCreateArray())
                 {
@@ -307,35 +313,39 @@ namespace Goorge.Services
                         returnModel.TotalCount = Convert.ToInt32(users.Total());
                     }
                     returnModel.Data = userList;
-                }                                
-            }catch(Exception ex){
-                Console.WriteLine(ex.ToString()); 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
                 returnModel.Message = ex.InnerException.Message;
             }
-            return returnModel; 
+            return returnModel;
         }
         public ReturnModel GetUserTotal()
         {
             ReturnModel returnModel = new ReturnModel();
             var resp = managerAPI.UserTotal();
-            returnModel.Data= resp;
+            returnModel.Data = resp;
 
             return returnModel;
         }
-        public ReturnModel GetUserLoginsByGroup(string group) { 
-        
+        public ReturnModel GetUserLoginsByGroup(string group)
+        {
+
             ReturnModel returnModel = new ReturnModel();
             MTRetCode statusCode = new MTRetCode();
             var logins = managerAPI.UserLogins(group, out statusCode);
-            returnModel.MTRetCode= statusCode;
-            if(statusCode == MTRetCode.MT_RET_OK)
+            returnModel.MTRetCode = statusCode;
+            if (statusCode == MTRetCode.MT_RET_OK)
             {
                 returnModel.Data = logins;
             }
-            
+
             return returnModel;
         }
-        public ReturnModel GetUsersByGroup(string group) {
+        public ReturnModel GetUsersByGroup(string group)
+        {
 
             ReturnModel returnModel = new ReturnModel();
             MTRetCode res = new MTRetCode();

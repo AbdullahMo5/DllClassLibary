@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MetaQuotes.MT5CommonAPI;
+﻿using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
-using TradeRateSell;
+using System;
 
 namespace Goorge
 {
@@ -22,29 +17,29 @@ namespace Goorge
             //--- Initialize the factory
             if ((res = SMTManagerAPIFactory.Initialize(@"C:\MetaTrader5SDK\Libs")) != MTRetCode.MT_RET_OK)
             {
-             
+
             }
             //--- Receive the API version
             uint version = 0;
             if ((res = SMTManagerAPIFactory.GetVersion(out version)) != MTRetCode.MT_RET_OK)
             {
-               
+
             }
             //--- Compare the obtained version with the library one
             if (version != SMTManagerAPIFactory.ManagerAPIVersion)
             {
-               
+
             }
             //--- Create an instance
             m_manager = SMTManagerAPIFactory.CreateManager(SMTManagerAPIFactory.ManagerAPIVersion, out res);
             if (res != MTRetCode.MT_RET_OK)
             {
-               
+
             }
             //--- For some reasons, the creation method returned OK and the null pointer
             if (m_manager == null)
             {
-             
+
             }
             //--- All is well
             msg = string.Format("Using ManagerAPI v. {0}", version);
@@ -96,7 +91,7 @@ namespace Goorge
             //deal.OnDealSync();
             //deal.OnDealAdd(ob2);
             MTChartBar[] bars = requestSymbolBars();
-           
+
         }
         static void Event()
         {

@@ -3,21 +3,11 @@
 //|                       Copyright 2001-2020, MetaQuotes Software Corp. |
 //|                                            http://www.metaquotes.net |
 //+----------------------------------------------------------------------+
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Goorge.Model;
 using Goorge.Models;
-using Goorge.Services;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
+using System;
 using TradeRateSell;
-using static System.Net.Mime.MediaTypeNames;
 //+----------------------------------------------------------------------+
 //|                                                                      |
 //+----------------------------------------------------------------------+
@@ -33,7 +23,7 @@ namespace Goorge
         //+--------------------------------------------------------------+
         //private static CIMTDeal m_manager = null;
         private static CIMTManagerAPI m_manager = null;
-       
+
         static void Shutdown(CIMTManagerAPI manager)
         {
             if (manager != null)
@@ -102,9 +92,17 @@ namespace Goorge
             //Console.WriteLine(ConnectionMT5API.ConnectMT5server("193.30.23.130", 443, 2010, "*bWzQu5m"));
             Console.WriteLine(ConnectionMT5API.ConnectMT5server("198.244.201.65", 1950, 2023, "123Nm,.com"));
 
-            var response2 = ConnectionMT5API.ArchiveUser(1001);
-
-            Console.WriteLine("Response: " + response2.MTRetCode);
+            //var response2 = ConnectionMT5API.ArchiveUser(1001);
+            ConnectionMT5API.CreateGroup(new CreateGroupModel
+            {
+                Group = "Mo5",
+                MarginCall = 50.0,
+                MarginStopOut = 30.0,
+                MarginSOMode = CIMTConGroup.EnStopOutMode.STOPOUT_FIRST,
+                TradeFlags = CIMTConGroup.EnTradeFlags.TRADEFLAGS_SO_COMPENSATION,
+                MarginFlags = CIMTConGroup.EnMarginFlags.MARGIN_FLAGS_ALL
+            });
+            //Console.WriteLine("Response: " + response2.MTRetCode);
 
             Console.WriteLine("Press any Key To Close......");
             Console.ReadLine();
@@ -185,7 +183,7 @@ namespace Goorge
                 }
             }
             //testing
-            ulong[] loginsss = {617633};
+            ulong[] loginsss = { 617633 };
             Console.WriteLine(ConnectionMT5API.ConnectMT5server("47.91.18.177", 6558, 1003, "123Nm,.com"));
             Console.WriteLine(ConnectionMT5API.UserAccountGet(17).Data);
             //Console.WriteLine(ConnectionMT5API.HistoryRequest(617633, 0, ((DateTimeOffset)fromDate).ToUnixTimeSeconds()).TotalCount);
@@ -197,9 +195,9 @@ namespace Goorge
             //CBooks bookObj = new CBooks();
             m_manager.BookSubscribe("EURUSD", bookObj);
             MTBook resoul = new MTBook();
-            m_manager.BookGet("EURUSD",out resoul);
+            m_manager.BookGet("EURUSD", out resoul);
             Console.WriteLine(resoul.symbol);
-            
+
             //---
             //ulong[] logins = { 1, 2, 3 };
             //long from = 0;
@@ -239,7 +237,7 @@ namespace Goorge
             }
             return res;
         }
-       
+
     }
 }
 //+--------------------------------------------------------------------+

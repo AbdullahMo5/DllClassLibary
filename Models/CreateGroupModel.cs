@@ -3,56 +3,11 @@ using static MetaQuotes.MT5CommonAPI.CIMTConGroup;
 
 namespace Goorge.Models
 {
-    public class GroupModel
+    public class CreateGroupModel
     {
-        public GroupModel()
-        {
-
-        }
-        public GroupModel(CIMTConGroup _group)
-        {
-            Group = _group.Group();
-            Server = _group.Server();
-            PermissionFlags = _group.PermissionsFlags();
-            AuthMode = _group.AuthMode();
-            AuthPasswordMin = _group.AuthPasswordMin();
-            Company = _group.Company();
-            CompanyEmail = _group.CompanyEmail();
-            CompanySupportEmail = _group.CompanySupportEmail();
-            CompanyCatalog = _group.CompanyCatalog();
-            CompanyDepositPage = _group.CompanyDepositPage();
-            CompanyWidthdrawalPage = _group.CompanyWithdrawalPage();
-            Currency = _group.Currency();
-            CurrencyDigits = _group.CurrencyDigits();
-            ReportsMode = _group.ReportsMode();
-            ReportsFlags = _group.ReportsFlags();
-            ReportsEmail = _group.ReportsEmail();
-            ReportsSMTP = _group.ReportsSMTP();
-            ReportsSMTPLogin = _group.ReportsSMTPLogin();
-            ReportsSMTPPass = _group.ReportsSMTPPass();
-            NewsMode = _group.NewsMode();
-            NewsCategory = _group.NewsCategory();
-            MailMode = _group.MailMode();
-            TradeFlags = _group.TradeFlags();
-            TradeInterestrate = _group.TradeInterestrate();
-            TradeVirtualCredit = _group.TradeVirtualCredit();
-            MarginFreeMode = _group.MarginFreeMode();
-            MarginSOMode = _group.MarginSOMode();
-            MarginCall = _group.MarginCall();
-            MarginStopOut = _group.MarginStopOut();
-            MarginFreeProfitMode = _group.MarginFreeProfitMode();
-            MarginFlags = _group.MarginFlags();
-            DemoLeverage = _group.DemoLeverage();
-            DemoDeposit = _group.DemoDeposit();
-            DemoInactivityPeriod = _group.DemoInactivityPeriod();
-            LimitHistory = _group.LimitHistory();
-            LimitOrders = _group.LimitOrders();
-            LimitSymbols = _group.LimitSymbols();
-            LimitPositions = _group.LimitPositions();
-            TradeTransferMode = _group.TradeTransferMode();
-
-        }
         public string Group { get; set; }
+        public CIMTConCommission CommisionAdd { get; set; }
+        public CIMTConGroupSymbol SymbolAdd { get; set; }
         public ulong Server { get; set; }
         public EnPermissionsFlags PermissionFlags { get; set; }
         public EnAuthMode AuthMode { get; set; }
@@ -84,7 +39,7 @@ namespace Goorge.Models
         public double MarginCall { get; set; }
         public double MarginStopOut { get; set; }
         public uint MarginFreeProfitMode { get; set; }
-        public uint MarginMode { get; set; }
+        public EnMarginMode MarginMode { get; set; }
         public EnMarginFlags MarginFlags { get; set; }
         public uint DemoLeverage { get; set; }
         public double DemoDeposit { get; set; }
@@ -94,8 +49,5 @@ namespace Goorge.Models
         public uint LimitSymbols { get; set; }
         public uint LimitPositions { get; set; }
         public EnTransferMode TradeTransferMode { get; set; }
-
-
-
     }
 }
