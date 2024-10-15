@@ -4,16 +4,30 @@ using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
 using System.Collections.Generic;
-using System.Web.UI.WebControls;
 
 namespace Goorge.Services
 {
     public class GroupService : IService
     {
         CIMTManagerAPI managerAPI = null;
+        //CIMTConManager cIMTConManager = null;
+        CIMTAdminAPI adminAPI = null;
         public void Initialize(CIMTManagerAPI m_manager)
         {
             managerAPI = m_manager;
+            //cIMTConManager = managerAPI.ManagerCreate();
+            //cIMTConManager.Login(2023);
+        }
+        public void Initialize(CIMTManagerAPI m_manager, CIMTAdminAPI m_admin)
+        {
+            if (m_manager != null)
+            {
+                managerAPI = m_manager;
+            }
+            if (m_admin != null)
+            {
+                adminAPI = m_admin;
+            }
         }
         public ReturnModel GetGroupTotal()
         {
@@ -65,9 +79,10 @@ namespace Goorge.Services
         public ReturnModel UpdateGroup(GroupModel group)
         {
             ReturnModel returnModel = new ReturnModel();
-            using (var groupToUpdate = managerAPI.GroupCreate())
+            using (var groupToUpdate = adminAPI.GroupCreate())
             {
-                groupToUpdate.Clear();
+                adminAPI.GroupGet(group.Group, groupToUpdate);
+                //groupToUpdate.Clear();
                 groupToUpdate.Server(group.Server);
                 groupToUpdate.PermissionsFlags(group.PermissionFlags);
                 groupToUpdate.AuthMode(group.AuthMode);
@@ -107,7 +122,7 @@ namespace Goorge.Services
                 groupToUpdate.LimitPositions(group.LimitPositions);
                 groupToUpdate.TradeTransferMode(group.TradeTransferMode);
 
-                var resp = managerAPI.GroupUpdate(groupToUpdate);
+                var resp = adminAPI.GroupUpdate(groupToUpdate);
                 returnModel.MTRetCode = resp;
 
                 if (resp == MTRetCode.MT_RET_OK)
@@ -123,48 +138,63 @@ namespace Goorge.Services
             return returnModel;
         }
 
-        public ReturnModel CreateGroup(CreateGroupModel groupModel)
+        public ReturnModel CreateGroup(CreateGroupModel model)
         {
             ReturnModel returnModel = new ReturnModel();
             try
             {
-                using (var group = managerAPI.GroupCreate())
+                using (var groupToCreate = adminAPI.GroupCreate())
                 {
-                    group.MarginCall(groupModel.MarginCall);
-                    group.Group(groupModel.Group);
-                    group.MarginStopOut(groupModel.MarginStopOut);
-                    group.MarginSOMode(groupModel.MarginSOMode);
-                    group.TradeFlags(groupModel.TradeFlags);
-                    group.CommissionAdd(groupModel.CommisionAdd);
-                    group.SymbolAdd(groupModel.SymbolAdd);
-                    //group.Path(groupModel.Company);
-                    group.MarginFlags(groupModel.MarginFlags);
-                    //group.swapmo(groupModel.DemoLeverage);
-                    //group.Currency(groupModel.Currency);
-                    //group.MarginStopOut(groupModel.MarginStopOut);
-                    //group.MarginMode(groupModel.MarginMode);
-                    //group.LimitPositions(groupModel.LimitPositions);
-                    //group.AuthPasswordMin(groupModel.AuthPasswordMin);
-                    //group.CompanyCatalog(groupModel.CompanyCatalog);
-                    //group.CompanyDepositPage(groupModel.CompanyDepositPage);
-                    //group.CompanyPage(groupModel.CompanyPage);
-                    //group.CompanySupportPage(groupModel.CompanySupportPage);
-                    //group.CompanySupportEmail(groupModel.CompanySupportEmail);
-                    //group.MarginCall(groupModel.MarginCall);
-                    //group.MarginSOMode(groupModel.MarginSOMode);
-                    //group.TradeVirtualCredit(groupModel.TradeVirtualCredit);
-                    //group.TradeTransferMode(groupModel.TradeTransferMode);
-                    //group.TradeFlags(groupModel.TradeFlags);
-                    //group.ReportsSMTP(groupModel.ReportsSMTP);
-                    returnModel.MTRetCode = managerAPI.GroupUpdate(group);
-                    if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
-                    {
-                        returnModel.Data = groupModel;
-                    }
-                    else
-                    {
-                        returnModel.Message = returnModel.MTRetCode.ToString();
-                    }
+                    groupToCreate.Group(model.Group);
+                    groupToCreate.Company(model.Company);
+                    groupToCreate.CompanyEmail(model.CompanyEmail);
+                    groupToCreate.Server(model.Server);
+                    groupToCreate.PermissionsFlags(model.PermissionFlags);
+                    groupToCreate.AuthMode(model.AuthMode);
+                    groupToCreate.AuthPasswordMin(model.AuthPasswordMin);
+                    groupToCreate.Company(model.Company);
+                    groupToCreate.CompanyEmail(model.CompanyEmail);
+                    groupToCreate.CompanySupportEmail(model.CompanySupportEmail);
+                    groupToCreate.CompanyCatalog(model.CompanyCatalog);
+                    groupToCreate.CompanyDepositPage(model.CompanyDepositPage);
+                    groupToCreate.CompanyWithdrawalPage(model.CompanyWidthdrawalPage);
+                    groupToCreate.Currency(model.Currency);
+                    groupToCreate.CurrencyDigitsSet(model.CurrencyDigits);
+                    groupToCreate.ReportsMode(model.ReportsMode);
+                    groupToCreate.ReportsFlags(model.ReportsFlags);
+                    groupToCreate.ReportsEmail(model.ReportsEmail);
+                    groupToCreate.ReportsSMTP(model.ReportsSMTP);
+                    groupToCreate.ReportsSMTPLogin(model.ReportsSMTPLogin);
+                    groupToCreate.ReportsSMTPPass(model.ReportsSMTPPass);
+                    groupToCreate.NewsMode(model.NewsMode);
+                    groupToCreate.NewsCategory(model.NewsCategory);
+                    groupToCreate.MailMode(model.MailMode);
+                    groupToCreate.TradeFlags(model.TradeFlags);
+                    groupToCreate.TradeInterestrate(model.TradeInterestrate);
+                    groupToCreate.TradeVirtualCredit(model.TradeVirtualCredit);
+                    groupToCreate.MarginFreeMode(model.MarginFreeMode);
+                    groupToCreate.MarginSOMode(model.MarginSOMode);
+                    groupToCreate.MarginCall(model.MarginCall);
+                    groupToCreate.MarginStopOut(model.MarginStopOut);
+                    groupToCreate.MarginFreeProfitMode(model.MarginFreeProfitMode);
+                    groupToCreate.MarginFlags(model.MarginFlags);
+                    groupToCreate.DemoLeverage(model.DemoLeverage);
+                    groupToCreate.DemoDeposit(model.DemoDeposit);
+                    groupToCreate.DemoInactivityPeriod(model.DemoInactivityPeriod);
+                    groupToCreate.LimitHistory(model.LimitHistory);
+                    groupToCreate.LimitOrders(model.LimitOrders);
+                    groupToCreate.LimitSymbols(model.LimitSymbols);
+                    groupToCreate.LimitPositions(model.LimitPositions);
+                    groupToCreate.TradeTransferMode(model.TradeTransferMode);
+                    returnModel.MTRetCode = adminAPI.GroupUpdate(groupToCreate);
+                }
+                if (returnModel.MTRetCode == MTRetCode.MT_RET_OK)
+                {
+                    returnModel.Data = "Group Has Created";
+                }
+                else
+                {
+                    returnModel.Message = returnModel.MTRetCode.ToString();
                 }
             }
             catch (Exception ex)

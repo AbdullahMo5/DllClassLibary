@@ -3,7 +3,6 @@
 //|                       Copyright 2001-2020, MetaQuotes Software Corp. |
 //|                                            http://www.metaquotes.net |
 //+----------------------------------------------------------------------+
-using Goorge.Models;
 using MetaQuotes.MT5CommonAPI;
 using MetaQuotes.MT5ManagerAPI;
 using System;
@@ -92,17 +91,59 @@ namespace Goorge
             //Console.WriteLine(ConnectionMT5API.ConnectMT5server("193.30.23.130", 443, 2010, "*bWzQu5m"));
             Console.WriteLine(ConnectionMT5API.ConnectMT5server("198.244.201.65", 1950, 2023, "123Nm,.com"));
 
+            //var d = ConnectionMT5API.GetAllGroup();
             //var response2 = ConnectionMT5API.ArchiveUser(1001);
-            ConnectionMT5API.CreateGroup(new CreateGroupModel
-            {
-                Group = "Mo5",
-                MarginCall = 50.0,
-                MarginStopOut = 30.0,
-                MarginSOMode = CIMTConGroup.EnStopOutMode.STOPOUT_FIRST,
-                TradeFlags = CIMTConGroup.EnTradeFlags.TRADEFLAGS_SO_COMPENSATION,
-                MarginFlags = CIMTConGroup.EnMarginFlags.MARGIN_FLAGS_ALL
-            });
-            //Console.WriteLine("Response: " + response2.MTRetCode);
+
+            //var x = ConnectionMT5API.CreateGroup(new CreateGroupModel
+            //{
+            //    Group = "demo\\Mo5",
+            //    Server = 1,
+            //    PermissionFlags = CIMTConGroup.EnPermissionsFlags.PERMISSION_NOTIFY_ALL,
+            //    AuthMode = 0,
+            //    AuthPasswordMin = 8,
+            //    Company = "Sky Option IT Solutions",
+            //    CompanyPage = null,
+            //    CompanyEmail = "",
+            //    CompanySupportPage = null,
+            //    CompanySupportEmail = "",
+            //    CompanyCatalog = "",
+            //    CompanyDepositPage = "",
+            //    CompanyWidthdrawalPage = "",
+            //    Currency = "USD",
+            //    CurrencyDigits = 2,
+            //    ReportsMode = 0,
+            //    ReportsFlags = 0,
+            //    ReportsEmail = "",
+            //    ReportsSMTP = "",
+            //    ReportsSMTPLogin = "",
+            //    ReportsSMTPPass = "",
+            //    NewsMode = CIMTConGroup.EnNewsMode.NEWS_MODE_LAST,
+            //    NewsCategory = "",
+            //    MailMode = CIMTConGroup.EnMailMode.MAIL_MODE_LAST,
+            //    TradeFlags = CIMTConGroup.EnTradeFlags.TRADEFLAGS_DEFAULT,
+            //    TradeInterestrate = 0,
+            //    TradeVirtualCredit = 0,
+            //    MarginFreeMode = CIMTConGroup.EnFreeMarginMode.FREE_MARGIN_USE_PL,
+            //    MarginSOMode = 0,
+            //    MarginCall = 60,
+            //    MarginStopOut = 30,
+            //    MarginFreeProfitMode = 0,
+            //    MarginMode = 0,
+            //    MarginFlags = 0,
+            //    DemoLeverage = 0,
+            //    DemoDeposit = 0,
+            //    DemoInactivityPeriod = 0,
+            //    LimitHistory = 0,
+            //    LimitOrders = 0,
+            //    LimitSymbols = 0,
+            //    LimitPositions = 0,
+            //    TradeTransferMode = 0
+            //});
+            //Console.WriteLine("Response: " + x.MTRetCode);
+            //foreach (var item in d.Data as List<GroupModel>)
+            //{
+            //    Console.WriteLine("Response: " + item.Server);
+            //}
 
             Console.WriteLine("Press any Key To Close......");
             Console.ReadLine();

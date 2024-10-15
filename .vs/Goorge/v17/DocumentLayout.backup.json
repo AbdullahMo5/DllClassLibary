@@ -3,19 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Goorge||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\models\\groupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:models\\groupmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\connectionmt5api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:connectionmt5api.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\groupservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\models\\symbolmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -24,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\services\\symbolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\symbolservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\manager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -56,9 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|solutionrelative:auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35D21875-93EE-4659-9964-248E53383765}|Goorge.csproj|c:\\users\\abdullah\\desktop\\manger api dll\\mt5-manager-api-dll\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -68,19 +66,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Goorge",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Goorge.csproj",
-              "RelativeDocumentMoniker": "Goorge.csproj",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Goorge.csproj",
-              "RelativeToolTip": "Goorge.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-10-10T09:18:51.183Z",
+              "DocumentIndex": 2,
+              "Title": "GroupModel.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\GroupModel.cs",
+              "RelativeDocumentMoniker": "Models\\GroupModel.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\GroupModel.cs",
+              "RelativeToolTip": "Models\\GroupModel.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAYwAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T07:40:07.916Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConnectionMT5API.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\ConnectionMT5API.cs",
+              "RelativeDocumentMoniker": "ConnectionMT5API.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\ConnectionMT5API.cs",
+              "RelativeToolTip": "ConnectionMT5API.cs",
+              "ViewState": "AgIAANMFAAAAAAAAAAAlwNwFAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T12:08:48.586Z"
             },
             {
               "$type": "Document",
@@ -90,33 +101,20 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAowGcAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAYwGUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T07:20:01.069Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "Models\\UserModel.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\UserModel.cs",
-              "RelativeToolTip": "Models\\UserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T12:43:49.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "GroupService.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\GroupService.cs",
               "RelativeDocumentMoniker": "Services\\GroupService.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\GroupService.cs",
-              "RelativeToolTip": "Services\\GroupService.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAALEAAAA2AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\GroupService.cs*",
+              "RelativeToolTip": "Services\\GroupService.cs*",
+              "ViewState": "AgIAALUAAAAAAAAAAAAAAL4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-09T12:19:43.274Z",
               "EditorCaption": ""
@@ -129,10 +127,9 @@
               "RelativeDocumentMoniker": "Users.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Users.cs",
               "RelativeToolTip": "Users.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAADUAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAEBdwDUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:55:50.635Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T09:55:50.635Z"
             },
             {
               "$type": "Document",
@@ -142,27 +139,13 @@
               "RelativeDocumentMoniker": "Manager.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Manager.cs",
               "RelativeToolTip": "Manager.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:55:26.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T09:55:26.82Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ConnectionMT5API.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\ConnectionMT5API.cs",
-              "RelativeDocumentMoniker": "ConnectionMT5API.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\ConnectionMT5API.cs",
-              "RelativeToolTip": "ConnectionMT5API.cs",
-              "ViewState": "AgIAANQFAAAAAAAAAAAewN0FAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:55:03.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "SymbolService.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\SymbolService.cs",
               "RelativeDocumentMoniker": "Services\\SymbolService.cs",
@@ -170,34 +153,43 @@
               "RelativeToolTip": "Services\\SymbolService.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAkwB0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T13:41:39.767Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T13:41:39.767Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SymbolModel.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\SymbolModel.cs",
               "RelativeDocumentMoniker": "Models\\SymbolModel.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\SymbolModel.cs",
               "RelativeToolTip": "Models\\SymbolModel.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAACYAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAIBJwDAAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T13:42:52.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T13:42:52.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Services\\UserService.cs",
               "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAowDoAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwB4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T12:48:59.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T12:48:59.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "Models\\UserModel.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Models\\UserModel.cs",
+              "RelativeToolTip": "Models\\UserModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-09T12:43:49.527Z"
             },
             {
               "$type": "Document",
@@ -207,10 +199,9 @@
               "RelativeDocumentMoniker": "RequestSink.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\RequestSink.cs",
               "RelativeToolTip": "RequestSink.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:55:39.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T09:55:39.499Z"
             },
             {
               "$type": "Document",
@@ -220,10 +211,9 @@
               "RelativeDocumentMoniker": "Dealer.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Manger Api Dll\\mt5-manager-api-dll\\Dealer.cs",
               "RelativeToolTip": "Dealer.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAIBZwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:55:12.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T09:55:12.347Z"
             },
             {
               "$type": "Document",
@@ -235,8 +225,7 @@
               "RelativeToolTip": "Books.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:54:59.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T09:54:59.988Z"
             },
             {
               "$type": "Document",
@@ -248,8 +237,7 @@
               "RelativeToolTip": "Auth.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T09:54:54.623Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T09:54:54.623Z"
             }
           ]
         }

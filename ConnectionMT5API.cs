@@ -111,7 +111,7 @@ namespace Goorge
                     accountService.Initialize(m_manager);
                     dealerService.Initialize(m_manager);
                     orderService.Initialize(m_manager);
-                    groupService.Initialize(m_manager);
+                    groupService.Initialize(m_manager,adminAPI);
                     symbolService.Initialize(m_manager);
                     Console.WriteLine("Initialized");
                 }
@@ -1497,8 +1497,8 @@ namespace Goorge
             return groupService.UpdateGroup(group);
         }
 
-        public static ReturnModel CreateGroup(CreateGroupModel group)
-            => groupService.CreateGroup(group);
+        public static ReturnModel CreateGroup(CreateGroupModel model)
+            => groupService.CreateGroup(model);
 
         public static MTRetCode ChangeClientGroup(ulong login, string groupName)
             => groupService.UserUpdateGroup(login, groupName);
